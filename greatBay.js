@@ -20,7 +20,7 @@ connection.connect(function (err) {
 
 const menu = [
     {
-        type: "checkbox",
+        type: "list",
         name: "postOrBid",
         message: "Would you like to [POST] an auction or [BID] on an auction?",
         choices: [
@@ -63,26 +63,22 @@ const BIDquestions = [
     }
 ]
 
-function start() {
-    inquirer
-        .prompt(menu)
-        .then(function (err, res) {
-            if (err) throw err;
-            if (res.postOrBid === "POST"){
-                inquirer.prompt(POSTquestions)
-                .then(function(POresponse){
-
-                })
-            }else if (res.postOrBid === "BID"){
-                inquirer.prompt(BIDquestions)
-                .then(function(){
-
-                })
-            }else if (res.postOrBid === "EXIT"){
-                return "You have left the bid."
-            }
+async function start() {
+    try {
+        const initiateMenu = await inquirer.prompt(menu);
+            
+        if (initiateMenu.postOrBid === "POST"){
+            const POSTquest = await inquirer.prompt(POSTquestions);
+                
+        }else if (res.postOrBid === "BID"){
+            const BIDquest = await inquirer.prompt(BIDquestions);
+            
+        }else if (res.postOrBid === "EXIT"){
+            return "You have left the bid.";
         }
-        );
-
-    
+    } catch (err) {
+        console.log(err);
+      }
 }
+
+
