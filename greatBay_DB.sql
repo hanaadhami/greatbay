@@ -12,5 +12,5 @@ CREATE TABLE auctions (
   PRIMARY KEY (id)
 );
 
-INSERT INTO auctions (category, bid)
+INSERT INTO auctions (category, bid, itemName)
 VALUES ("chair", 20, "brown chair"), ("computer", 200, "macbook pro");
