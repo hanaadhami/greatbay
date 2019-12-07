@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "Maekownz22!",
+    password: "",
     database: "greatBay_DB"
 });
 
@@ -25,7 +25,8 @@ function start() {
                 message: "Would you like to [POST] an auction or [BID] on an auction?",
                 choices: [
                     "POST",
-                    "BID"
+                    "BID",
+                    "EXIT"
                 ]
 
             }
